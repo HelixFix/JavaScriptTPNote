@@ -4,22 +4,24 @@ let iterations = 0;
 
 const targets = new Array();
 
-function createSprite(element, x, y, w, h) {
+function createSprite(element, x, y, s) {
   const result         = new Object();
         result.element = element;
         result.x       = x;
         result.y       = y;
-        result.w       = w;
-        result.h       = h;
+        result.s       = s;
+        // result.h       = h;
         
   return result;
 }
 
 
 function setPosition(sprite) {
-  const e            = document.getElementById(sprite.element);
-        e.style.left = sprite.x + 'px';
-        e.style.top  = sprite.y + 'px';
+  const e              = document.getElementById(sprite.element);
+        e.style.left   = sprite.x + 'px';
+        e.style.top    = sprite.y + 'px';
+        e.style.width  = sprite.s + 'px';
+        e.style.height = e.style.width;
 }
 
 
@@ -42,8 +44,8 @@ function showSprites() {
 
 function updatePositions() {
   for (let i = 0; i < targets.length; i++) {
-    targets[i].y += 4;
-    targets[i].x += getRandom(14) - 3;
+    targets[i].y += getRandom(14) - 6;
+    targets[i].x += getRandom(14) - 6;
     // setLimits(targets[i], true);
   }
   
@@ -61,7 +63,7 @@ function addTarget() {
   
   if (getRandom(interval) == 0) {
     const elementName = 'target' + getRandom(10000000);
-    const target      = createSprite(elementName, getRandom(950), -40, 35, 35);
+    const target      = createSprite(elementName, getRandom(950), getRandom(950), getRandom(70)+35);
     
     const element           = document.createElement('div');
           element.id        = target.element;

@@ -1,6 +1,7 @@
 * {
     margin : 0;
     padding: 0;
+    overflow: hidden;
 }
 
 #play {
@@ -24,7 +25,10 @@
   }
   
   .target {
-    background: #0000ff;
+    /* background: #0000ff; */
+    background-image:url(/troll.svg);
+    background-size: contain;
+background-repeat: no-repeat;
     width: 35px;
     height: 35px;
     position: absolute;
