@@ -14,17 +14,8 @@
   cursor: pointer;
 }
 
-
-#background {
-  width   : 500px;
-  height  : 500px;
-  position: absolute;
-  left    : 0px;
-  top     : 0px;
-}
-
 .target {
-  background-image : url(/troll.svg);
+  background-image : url(troll.svg);
   background-size  : contain;
   background-repeat: no-repeat;
   width            : 35px;
@@ -39,15 +30,6 @@
   position : absolute;
   left     : 20px;
   top      : 20px;
-}
-
-#timeover {
-  color     : #ff0000;
-  font-size : 20px;
-  position  : absolute;
-  left      : 160px;
-  top       : 200px;
-  visibility: hidden;
 }
 
 .hide {

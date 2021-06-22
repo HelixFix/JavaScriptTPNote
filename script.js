@@ -1,12 +1,32 @@
 let lastLoop   = 0;
 let score      = 0;
 let iterations = 0;
+let counter    = 90;
+let timeOut    = new Boolean('false');
 
 const targets = new Array();
 const start   = document.getElementById('play');
+const timeElt = document.getElementById('timer');
+
+
 
 start.addEventListener( 'click', function() {        
   start.classList.add("hide");
+  timeOut = 'false'
+  console.log(timeOut);
+
+      let timer = setInterval(function(){
+        // console.log(counter);
+        
+        timeElt.innerHTML = counter;
+        counter --;
+        if(counter === 0) {
+          timeElt.innerHTML = "Time Over";
+          clearInterval(timer);
+          timeOut = "true"
+          console.log(timeOut);
+        }
+      }, 1000)
       loop();
   }
 );
@@ -34,15 +54,6 @@ function setPosition(sprite) {
         // e.addEventListener("click", touchIt);
         
 }
-
-
-
-// function gameOver() {
-  
-//   element.style.visibility = 'hidden';
-//   element = document.getElementById('gameover');
-//   element.style.visibility = 'visible';
-// }
 
 function showSprites() {
 
@@ -102,16 +113,18 @@ function getRandom(maxSize) {
 }
 
 function loop() {
+
+  if(timeOut === "false") {
   if (new Date().getTime() - lastLoop > 40) {
     updatePositions();
 
-    
     addTarget();
     
     showSprites();
     
     lastLoop = new Date().getTime();
     iterations++;
+  }
   }
   setTimeout('loop();', 2);
 }
