@@ -3,6 +3,13 @@ let score      = 0;
 let iterations = 0;
 
 const targets = new Array();
+const start   = document.getElementById('play');
+
+start.addEventListener( 'click', function() {        
+  start.classList.add("hide");
+      loop();
+  }
+);
 
 function createSprite(element, x, y, s) {
   const result         = new Object();
@@ -16,7 +23,7 @@ function createSprite(element, x, y, s) {
 
 
 function setPosition(sprite) {
-  const e              = document.getElementById(sprite.element);
+  const e = document.getElementById(sprite.element);
   if(e) {
         e.style.left   = sprite.x + 'px';
         e.style.top    = sprite.y + 'px';
@@ -110,5 +117,3 @@ function loop() {
 }
 
 
-// onclick je lance le loop
-loop();

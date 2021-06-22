@@ -1,52 +1,55 @@
 * {
-    margin : 0;
-    padding: 0;
-    overflow: hidden;
+  margin  : 0;
+  padding : 0;
+  overflow: hidden;
 }
 
 #play {
-    position        : absolute;
-    top             : 50%;
-    left            : 50%;
+  position: absolute;
+  top     : 50%;
+  left    : 50%;
 }
 
-#play:hover{
-    cursor: pointer;
+#play:hover {
+  cursor: pointer;
 }
 
 
 #background {
-    /* background: #000000; */
-    width: 500px;
-    height: 500px;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-  }
-  
-  .target {
-    /* background: #0000ff; */
-    background-image:url(/troll.svg);
-    background-size: contain;
-background-repeat: no-repeat;
-    width: 35px;
-    height: 35px;
-    position: absolute;
-    cursor: pointer;
-    transition:transform 0.5s 0.25s,
-  }
-  #score {
-    /* color: #ffffff; */
-    font-size: 18pt;
-    position: absolute;
-    left: 20px;
-    top: 20px;
-  }
-  #gameover {
-    color: #ff0000;
-    font-size: 20px;
-    position: absolute;
-    left: 160px;
-    top: 200px;
-    visibility: hidden;
-  }
+  width   : 500px;
+  height  : 500px;
+  position: absolute;
+  left    : 0px;
+  top     : 0px;
+}
+
+.target {
+  background-image : url(/troll.svg);
+  background-size  : contain;
+  background-repeat: no-repeat;
+  width            : 35px;
+  height           : 35px;
+  position         : absolute;
+  cursor           : pointer;
+  transition       : transform 0.5s 0.25s,
+}
+
+#score {
+  font-size: 18pt;
+  position : absolute;
+  left     : 20px;
+  top      : 20px;
+}
+
+#timeover {
+  color     : #ff0000;
+  font-size : 20px;
+  position  : absolute;
+  left      : 160px;
+  top       : 200px;
+  visibility: hidden;
+}
+
+.hide {
+  display: none;
+}
