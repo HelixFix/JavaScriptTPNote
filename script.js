@@ -22,6 +22,8 @@ function setPosition(sprite) {
         e.style.top    = sprite.y + 'px';
         e.style.width  = sprite.s + 'px';
         e.style.height = e.style.width;
+        // e.onclick = console.log('toucher');
+        
 }
 
 
@@ -37,9 +39,19 @@ function showSprites() {
 
   for (let i = 0; i < targets.length; i++) {
     setPosition(targets[i]);
+    // console.log(targets[i]);
+    // targets[i]
+    document.getElementById(targets[i].element).addEventListener("click", touchIt);
+    
   }
   const scoreElement           = document.getElementById('score');
         scoreElement.innerHTML = 'SCORE: ' + score;
+}
+
+function touchIt(){
+  console.log('toucher');
+  this.classList.remove("target")
+  
 }
 
 function updatePositions() {
@@ -62,7 +74,7 @@ function addTarget() {
   }
   
   if (getRandom(interval) == 0) {
-    const elementName = 'target' + getRandom(10000000);
+    const elementName = 'target' + getRandom(50);
     const target      = createSprite(elementName, getRandom(950), getRandom(950), getRandom(70)+35);
     
     const element           = document.createElement('div');

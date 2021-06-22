@@ -33,6 +33,7 @@ background-repeat: no-repeat;
     height: 35px;
     position: absolute;
     cursor: pointer;
+    transition:transform 0.5s 0.25s,
   }
   #score {
     /* color: #ffffff; */
