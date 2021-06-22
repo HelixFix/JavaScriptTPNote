@@ -10,7 +10,6 @@ function createSprite(element, x, y, s) {
         result.x       = x;
         result.y       = y;
         result.s       = s;
-        // result.h       = h;
         
   return result;
 }
@@ -18,11 +17,14 @@ function createSprite(element, x, y, s) {
 
 function setPosition(sprite) {
   const e              = document.getElementById(sprite.element);
+  if(e) {
         e.style.left   = sprite.x + 'px';
         e.style.top    = sprite.y + 'px';
         e.style.width  = sprite.s + 'px';
         e.style.height = e.style.width;
-        // e.onclick = console.log('toucher');
+        e.addEventListener("click", touchIt);
+}
+        // e.addEventListener("click", touchIt);
         
 }
 
@@ -41,7 +43,7 @@ function showSprites() {
     setPosition(targets[i]);
     // console.log(targets[i]);
     // targets[i]
-    document.getElementById(targets[i].element).addEventListener("click", touchIt);
+    // document.getElementById(targets[i].element).addEventListener("click", touchIt);
     
   }
   const scoreElement           = document.getElementById('score');
@@ -50,15 +52,17 @@ function showSprites() {
 
 function touchIt(){
   console.log('toucher');
-  this.classList.remove("target")
-  
+  // this.classList.remove("target")
+  this.remove();
+
+  score += 1;
 }
 
 function updatePositions() {
   for (let i = 0; i < targets.length; i++) {
     targets[i].y += getRandom(14) - 6;
     targets[i].x += getRandom(14) - 6;
-    // setLimits(targets[i], true);
+   
   }
   
 }
