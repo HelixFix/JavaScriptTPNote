@@ -10,6 +10,7 @@ const timeElt = document.getElementById('timer');
 
 
 
+// add click event to start time out
 start.addEventListener( 'click', function() {        
   start.classList.add("hide");
   timeOut = 'false'
@@ -31,6 +32,7 @@ start.addEventListener( 'click', function() {
   }
 );
 
+// create a sprite object with x y and's
 function createSprite(element, x, y, s) {
   const result         = new Object();
         result.element = element;
@@ -42,6 +44,7 @@ function createSprite(element, x, y, s) {
 }
 
 
+// set the position of the specified sprite
 function setPosition(sprite) {
   const e = document.getElementById(sprite.element);
   if(e) {
@@ -55,6 +58,7 @@ function setPosition(sprite) {
         
 }
 
+// show all sprites on the page
 function showSprites() {
 
   for (let i = 0; i < targets.length; i++) {
@@ -68,6 +72,7 @@ function showSprites() {
         scoreElement.innerHTML = 'SCORE: ' + score;
 }
 
+// touch it function
 function touchIt(){
   console.log('toucher');
   // this.classList.remove("target")
@@ -76,6 +81,7 @@ function touchIt(){
   score += 1;
 }
 
+// update the positions of all the targets
 function updatePositions() {
   for (let i = 0; i < targets.length; i++) {
     targets[i].y += getRandom(14) - 6;
@@ -85,6 +91,7 @@ function updatePositions() {
   
 }
 
+// add a target element to the page
 function addTarget() {
   let interval = 50;
   if (iterations > 1500) {
@@ -112,6 +119,7 @@ function getRandom(maxSize) {
   return parseInt(Math.random() * maxSize);
 }
 
+// loop until time out is true
 function loop() {
 
   if(timeOut === "false") {
