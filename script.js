@@ -59,6 +59,7 @@ function setPosition(sprite) {
 // show all sprites on the page
 function showSprites() {
 
+  // set the position of all the targets
   for (const valeur of targets) {
     setPosition(valeur);
   }
@@ -78,6 +79,7 @@ function touchIt(){
 // update the positions of all the targets
 function updatePositions() {
 
+  // move all the targets randomly
   for (const valeur of targets) {
     valeur.y += getRandom(14) - 6;
     valeur.x += getRandom(14) - 6;
@@ -96,6 +98,7 @@ function addTarget() {
     interval = 35;
   }
   
+  // create a random sprite if not already done
   if (getRandom(interval) == 0) {
     const elementName = 'target' + getRandom(50);
     const target      = createSprite(elementName, getRandom(950), getRandom(950), getRandom(70)+35);
