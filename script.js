@@ -61,8 +61,8 @@ function setPosition(sprite) {
 // show all sprites on the page
 function showSprites() {
 
-  for (let i = 0; i < targets.length; i++) {
-    setPosition(targets[i]);
+  for (let valeur of targets) {
+    setPosition(valeur);
     // console.log(targets[i]);
     // targets[i]
     // document.getElementById(targets[i].element).addEventListener("click", touchIt);
