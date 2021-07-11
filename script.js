@@ -2,7 +2,7 @@ let lastLoop   = 0;
 let score      = 0;
 let iterations = 0;
 let counter    = 90;
-let timeOut    = new Boolean('false');
+let timeOut    = Boolean(false);
 
 const targets = new Array();
 const start   = document.getElementById('play');
@@ -13,18 +13,17 @@ const timeElt = document.getElementById('timer');
 // add click event to start time out
 start.addEventListener( 'click', function() {        
   start.classList.add("hide");
-  timeOut = 'false'
+
   console.log(timeOut);
 
       let timer = setInterval(function(){
-        // console.log(counter);
         
         timeElt.innerHTML = counter;
         counter --;
         if(counter === 0) {
           timeElt.innerHTML = "Time Over";
           clearInterval(timer);
-          timeOut = "true"
+          timeOut = true
           console.log(timeOut);
         }
       }, 1000)
@@ -53,20 +52,15 @@ function setPosition(sprite) {
         e.style.width  = sprite.s + 'px';
         e.style.height = e.style.width;
         e.addEventListener("click", touchIt);
-}
-        // e.addEventListener("click", touchIt);
+  }
         
 }
 
 // show all sprites on the page
 function showSprites() {
 
-  for (let valeur of targets) {
+  for (const valeur of targets) {
     setPosition(valeur);
-    // console.log(targets[i]);
-    // targets[i]
-    // document.getElementById(targets[i].element).addEventListener("click", touchIt);
-    
   }
   const scoreElement           = document.getElementById('score');
         scoreElement.innerHTML = 'SCORE: ' + score;
@@ -83,10 +77,10 @@ function touchIt(){
 
 // update the positions of all the targets
 function updatePositions() {
-  for (let i = 0; i < targets.length; i++) {
-    targets[i].y += getRandom(14) - 6;
-    targets[i].x += getRandom(14) - 6;
-   
+
+  for (const valeur of targets) {
+    valeur.y += getRandom(14) - 6;
+    valeur.x += getRandom(14) - 6;
   }
   
 }
@@ -122,7 +116,7 @@ function getRandom(maxSize) {
 // loop until time out is true
 function loop() {
 
-  if(timeOut === "false") {
+  if(timeOut === false) {
   if (new Date().getTime() - lastLoop > 40) {
     updatePositions();
 
